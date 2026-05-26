@@ -9,8 +9,8 @@
     />
     <title>Schatzi Grooming Salon | Premium Pet SPA</title>
     <link rel="canonical" href="https://schatzi-grooming.com" />
-    <meta name="theme-color" content="#fbf4ea" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="color-scheme" content="dark" />
     <meta property="og:title" content="Schatzi Grooming Salon | Premium Pet Care" />
     <meta property="og:description" content="Culture of care and impeccable style for four-legged aesthetics. Professional grooming without stress." />
     <meta property="og:image" content="/assets/og-premium-preview.jpg" />
@@ -22,6 +22,19 @@
     <link rel="icon" href="/assets/favicons/favicon-512.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" sizes="180x180" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=960&q=60&fm=avif"
+      imagesrcset="
+        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=720&q=58&fm=avif 720w,
+        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1200&q=62&fm=avif 1200w,
+        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1800&q=66&fm=avif 1800w
+      "
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -48,25 +61,25 @@
         <a href="#team">Team</a>
         <a href="#contacts">Contacts</a>
       </nav>
-      <a class="header-cta" href="#contacts">Contacts</a>
+      <a class="header-cta" href="#contacts" aria-label="Перейти к контактам салона">Contacts</a>
     </header>
 
     <main>
       <section class="hero" id="hero" aria-label="Premium grooming salon hero">
         <div class="hero-slider" aria-hidden="true">
-          <div class="hero-slide is-active" style="--hero-image: url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1800&q=75&fm=webp')"></div>
-          <div class="hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1800&q=75&fm=webp')"></div>
-          <div class="hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=1800&q=75&fm=webp')"></div>
+          <div class="hero-slide is-active" style="--hero-image: url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1800&q=66&fm=avif')"></div>
+          <div class="hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1800&q=66&fm=avif')"></div>
+          <div class="hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=1800&q=66&fm=avif')"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <p class="eyebrow">Premium Pet SPA Rituals</p>
-          <h1>Stress-free grooming for beloved companions.</h1>
+          <h1 id="hero-title" data-default-title="Stress-free grooming for beloved companions.">Stress-free grooming for beloved companions.</h1>
           <p class="hero-copy">
             A boutique grooming experience where calm handling, sterile tools, and premium cosmetics meet refined salon aesthetics.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/48791123609" target="_blank" rel="noreferrer">
+            <a class="button button-primary" href="https://wa.me/48791123609" target="_blank" rel="noreferrer" aria-label="Связаться с салоном в WhatsApp">
               Contact in WhatsApp
             </a>
             <a class="button button-secondary" href="#prices">Explore Services</a>
@@ -130,7 +143,7 @@
         <div class="tab-panels">
           <div class="tab-panel is-active" id="panel-dogs" role="tabpanel" aria-labelledby="tab-dogs" data-panel="dogs">
             <article class="accordion is-open">
-              <button class="accordion-trigger" aria-expanded="true">
+              <button class="accordion-trigger" aria-expanded="true" aria-label="Открыть цену для маленьких пород">
                 Small Breeds
                 <span>from EUR 35</span>
               </button>
@@ -140,7 +153,7 @@
               </div>
             </article>
             <article class="accordion">
-              <button class="accordion-trigger" aria-expanded="false">
+              <button class="accordion-trigger" aria-expanded="false" aria-label="Открыть цену для средних пород">
                 Medium Breeds
                 <span>from EUR 50</span>
               </button>
@@ -150,7 +163,7 @@
               </div>
             </article>
             <article class="accordion">
-              <button class="accordion-trigger" aria-expanded="false">
+              <button class="accordion-trigger" aria-expanded="false" aria-label="Открыть цену для крупных пород">
                 Large Breeds
                 <span>from EUR 75</span>
               </button>
@@ -163,7 +176,7 @@
 
           <div class="tab-panel" id="panel-cats" role="tabpanel" aria-labelledby="tab-cats" data-panel="cats" hidden>
             <article class="accordion is-open">
-              <button class="accordion-trigger" aria-expanded="true">
+              <button class="accordion-trigger" aria-expanded="true" aria-label="Открыть цену для ухода за кошками">
                 Comfort Groom
                 <span>from EUR 45</span>
               </button>
@@ -173,7 +186,7 @@
               </div>
             </article>
             <article class="accordion">
-              <button class="accordion-trigger" aria-expanded="false">
+              <button class="accordion-trigger" aria-expanded="false" aria-label="Открыть цену для удаления колтунов">
                 De-matting Care
                 <span>from EUR 60</span>
               </button>
@@ -186,7 +199,7 @@
 
           <div class="tab-panel" id="panel-spa" role="tabpanel" aria-labelledby="tab-spa" data-panel="spa" hidden>
             <article class="accordion is-open">
-              <button class="accordion-trigger" aria-expanded="true">
+              <button class="accordion-trigger" aria-expanded="true" aria-label="Открыть цену для SPA-реконструкции">
                 SPA Reconstruction
                 <span>from EUR 30</span>
               </button>
@@ -196,7 +209,7 @@
               </div>
             </article>
             <article class="accordion">
-              <button class="accordion-trigger" aria-expanded="false">
+              <button class="accordion-trigger" aria-expanded="false" aria-label="Открыть цену для чувствительной кожи">
                 Sensitive Skin Ritual
                 <span>from EUR 25</span>
               </button>
@@ -207,6 +220,46 @@
             </article>
           </div>
         </div>
+      </section>
+
+      <section class="section care-quiz" id="care-quiz" aria-labelledby="quiz-title">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Smart Care Selector</div>
+            <h2 id="quiz-title">Подберите ритуал за 20 секунд.</h2>
+          </div>
+          <p>Легкий опросник подскажет подходящий комплекс: гигиена, стрижка, SPA или деликатный уход.</p>
+        </div>
+        <form class="quiz-card" data-care-quiz>
+          <label>
+            Тип питомца
+            <select name="petType" aria-label="Выберите тип питомца">
+              <option value="dog">Собака</option>
+              <option value="cat">Кошка</option>
+            </select>
+          </label>
+          <label>
+            Порода или размер
+            <select name="breedSize" aria-label="Выберите размер или тип породы">
+              <option value="small">Маленькая порода</option>
+              <option value="medium">Средняя порода</option>
+              <option value="large">Крупная порода</option>
+              <option value="longhair">Длинная шерсть</option>
+            </select>
+          </label>
+          <label>
+            Главная задача
+            <select name="goal" aria-label="Выберите основную задачу ухода">
+              <option value="hygiene">Гигиена</option>
+              <option value="haircut">Стрижка</option>
+              <option value="spa">SPA / восстановление</option>
+              <option value="sensitive">Чувствительная кожа</option>
+            </select>
+          </label>
+          <output class="quiz-result" data-quiz-result aria-live="polite">
+            Рекомендация: Hygiene Ritual + консультация мастера перед визитом.
+          </output>
+        </form>
       </section>
 
       <section class="section gallery" id="gallery">
@@ -221,15 +274,19 @@
         <div class="comparison" data-comparison>
           <img
             class="comparison-image"
-            src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=1300&q=75&fm=webp"
+            src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=1300&q=66&fm=avif"
             alt="Dog before grooming"
+            width="1300"
+            height="867"
             loading="lazy"
             decoding="async"
           />
           <div class="comparison-after" data-after>
             <img
-              src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1300&q=75&fm=webp"
+              src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1300&q=66&fm=avif"
               alt="Dog after grooming"
+              width="1300"
+              height="867"
               loading="lazy"
               decoding="async"
             />
@@ -252,7 +309,7 @@
 
         <div class="team-grid">
           <article class="team-card">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=75&fm=webp" alt="Groomer Elena" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=66&fm=avif" alt="Groomer Elena" width="900" height="1200" loading="lazy" decoding="async" />
             <div class="team-info">
               <span>Lead Groomer</span>
               <h3>Elena</h3>
@@ -261,7 +318,7 @@
             </div>
           </article>
           <article class="team-card">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=75&fm=webp" alt="Groomer Sofia" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=66&fm=avif" alt="Groomer Sofia" width="900" height="1200" loading="lazy" decoding="async" />
             <div class="team-info">
               <span>Cat Care Master</span>
               <h3>Sofia</h3>
@@ -270,7 +327,7 @@
             </div>
           </article>
           <article class="team-card">
-            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=75&fm=webp" alt="Groomer Mira" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=66&fm=avif" alt="Groomer Mira" width="900" height="1200" loading="lazy" decoding="async" />
             <div class="team-info">
               <span>SPA Stylist</span>
               <h3>Mira</h3>
@@ -294,16 +351,16 @@
 
         <div class="instagram-grid" aria-label="Instagram preview feed">
           <a href="https://www.instagram.com/schatzi.groomingsalon" target="_blank" rel="noreferrer">
-            <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=70&fm=webp" alt="Freshly groomed dog" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=62&fm=avif" alt="Freshly groomed dog" width="600" height="600" loading="lazy" decoding="async" />
           </a>
           <a href="https://www.instagram.com/schatzi.groomingsalon" target="_blank" rel="noreferrer">
-            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=70&fm=webp" alt="Two clean dogs" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=62&fm=avif" alt="Two clean dogs" width="600" height="600" loading="lazy" decoding="async" />
           </a>
           <a href="https://www.instagram.com/schatzi.groomingsalon" target="_blank" rel="noreferrer">
-            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=70&fm=webp" alt="Cat grooming inspiration" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=62&fm=avif" alt="Cat grooming inspiration" width="600" height="600" loading="lazy" decoding="async" />
           </a>
           <a href="https://www.instagram.com/schatzi.groomingsalon" target="_blank" rel="noreferrer">
-            <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=600&q=70&fm=webp" alt="Calm pet portrait" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=600&q=62&fm=avif" alt="Calm pet portrait" width="600" height="600" loading="lazy" decoding="async" />
           </a>
         </div>
       </section>
@@ -375,6 +432,20 @@
         </div>
       </div>
     </footer>
+
+    <nav class="bottom-nav" aria-label="Быстрые действия">
+      <a href="#contacts" aria-label="Открыть раздел онлайн-записи">Booksly</a>
+      <a href="https://wa.me/48791123609" target="_blank" rel="noreferrer" aria-label="Связаться в WhatsApp">WhatsApp</a>
+      <a href="#contacts" aria-label="Посмотреть карту и адрес салона">Карта</a>
+    </nav>
+
+    <section class="cookie-notice" data-cookie-notice aria-label="Настройки cookie">
+      <p>Мы используем только необходимые cookie по умолчанию. Аналитика включается только после вашего явного согласия.</p>
+      <div>
+        <button type="button" class="text-link" data-cookie-essential>Принять только необходимые</button>
+        <button type="button" class="button button-primary" data-cookie-all>Принять все</button>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
