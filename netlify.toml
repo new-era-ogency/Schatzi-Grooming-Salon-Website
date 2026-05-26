@@ -1,0 +1,18 @@
+[[redirects]]
+  from = "http://schatzi-grooming.com/*"
+  to = "https://schatzi-grooming.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.schatzi-grooming.com/*"
+  to = "https://schatzi-grooming.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
