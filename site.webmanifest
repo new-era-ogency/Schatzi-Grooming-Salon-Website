@@ -1,11 +1,11 @@
 {
   "name": "Schatzi Grooming Salon",
   "short_name": "Schatzi",
-  "description": "Premium, stress-free grooming rituals for dogs and cats.",
+  "description": "Premium Hundesalon und Katzensalon in Bremen.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#121212",
-  "theme_color": "#121212",
+  "background_color": "#fbf4ea",
+  "theme_color": "#fbf4ea",
   "icons": [
     {
       "src": "/assets/favicons/favicon.svg",
