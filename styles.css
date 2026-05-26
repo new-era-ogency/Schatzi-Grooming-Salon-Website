@@ -826,6 +826,11 @@ h3 {
   margin-top: 3rem;
 }
 
+.team-grid {
+  grid-template-columns: minmax(0, 34rem);
+  justify-content: center;
+}
+
 .team-card {
   position: relative;
   min-height: 34rem;
@@ -1219,12 +1224,12 @@ h3 {
 
 @media (max-width: 620px) {
   body {
-    padding-bottom: 6.5rem;
+    padding-bottom: 5.8rem;
   }
 
   .site-header {
     gap: 0.7rem;
-    padding: 0.85rem 1rem;
+    padding: 0.7rem 0.9rem;
   }
 
   .brand {
@@ -1261,7 +1266,8 @@ h3 {
   }
 
   .hero {
-    padding-top: 7.5rem;
+    min-height: 92svh;
+    padding: 7rem 1rem 3rem;
   }
 
   .hero-video {
@@ -1277,11 +1283,24 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3.8rem, 19vw, 5.7rem);
+    font-size: clamp(3.25rem, 16vw, 5rem);
   }
 
   h2 {
-    font-size: clamp(2.85rem, 14vw, 4.7rem);
+    font-size: clamp(2.45rem, 12vw, 4.1rem);
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .section-heading,
+  .split-layout {
+    gap: 1.6rem;
+  }
+
+  .copy-stack {
+    padding-top: 0;
   }
 
   .button,
@@ -1299,7 +1318,8 @@ h3 {
   }
 
   .comparison {
-    min-height: 28rem;
+    min-height: 23rem;
+    margin-top: 2rem;
   }
 
   .comparison-after img {
@@ -1314,12 +1334,54 @@ h3 {
     min-height: auto;
   }
 
+  .team-grid,
+  .instagram-grid,
+  .contact-grid,
+  .quiz-card,
+  .badge-grid {
+    margin-top: 1.5rem;
+  }
+
+  .team-card {
+    min-height: 25rem;
+    border-radius: 1.4rem;
+  }
+
+  .team-info {
+    padding: 1rem;
+    transform: translateY(0);
+  }
+
+  .team-info p,
+  .team-info small {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .footer {
+    padding: 0 1rem 2rem;
+  }
+
+  .footer-map {
+    min-height: 18rem;
+    border-radius: 1.4rem;
+  }
+
   .bottom-nav {
     display: grid;
+    right: 0.7rem;
+    bottom: 0.7rem;
+    left: 0.7rem;
+    padding: 0.4rem;
+  }
+
+  .bottom-nav a {
+    min-height: 48px;
+    font-size: 0.66rem;
   }
 
   .cookie-notice {
-    bottom: 6.4rem;
+    bottom: 5.8rem;
   }
 }
 
