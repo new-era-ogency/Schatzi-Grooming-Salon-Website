@@ -28,12 +28,7 @@
       rel="preload"
       as="image"
       href="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=960&q=60&fm=avif"
-      imagesrcset="
-        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=720&q=58&fm=avif 720w,
-        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1200&q=62&fm=avif 1200w,
-        https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=1800&q=66&fm=avif 1800w
-      "
-      imagesizes="100vw"
+      media="(max-width: 767px)"
       fetchpriority="high"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -121,15 +116,15 @@
           loop
           playsinline
           preload="metadata"
-          poster="https://source.unsplash.com/1800x1200/?elegant-dog-grooming,luxury-pet-salon"
+          poster="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=960&q=60&fm=avif"
           aria-hidden="true"
         >
-          <source src="https://videos.pexels.com/video-files/855029/855029-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/855029/855029-hd_1920_1080_30fps.mp4" type="video/mp4" media="(min-width: 768px)" />
         </video>
         <div class="hero-slider" aria-hidden="true">
-          <div class="hero-slide is-active" style="--hero-image: url('https://source.unsplash.com/1800x1200/?elegant-dog-grooming,luxury-pet-salon')"></div>
-          <div class="hero-slide" style="--hero-image: url('https://source.unsplash.com/1800x1200/?luxury-poodle-aesthetic,premium-grooming')"></div>
-          <div class="hero-slide" style="--hero-image: url('https://source.unsplash.com/1800x1200/?cat-grooming,luxury-pet-care')"></div>
+          <div class="hero-slide is-active" style="--hero-image: url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&w=960&q=60&fm=avif')"></div>
+          <div class="hero-slide" style="--hero-image: url('https://source.unsplash.com/1400x900/?luxury-poodle-aesthetic,premium-grooming&fm=webp&q=72')"></div>
+          <div class="hero-slide" style="--hero-image: url('https://source.unsplash.com/1400x900/?cat-grooming,luxury-pet-care&fm=webp&q=72')"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -457,13 +452,28 @@
         </div>
       </section>
 
-      <div class="footer-map" aria-label="Salon location map">
-        <iframe
-          title="Schatzi Grooming Salon map"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Halmerweg%2031a%2C%2028237%20Bremen%2C%20Deutschland&amp;output=embed"
-        ></iframe>
+      <div
+        class="footer-map google-map-consent"
+        aria-label="Salon location map"
+        data-google-map
+        data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2393.921350849301!2d8.7561841!3d53.1363612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1286ebef1952d%3A0x286bd4fb8eb6845c!2sHalmerweg%2031a%2C%2028237%20Bremen!5e0!3m2!1sde!2sde!4v1716723200000!5m2!1sde!2sde"
+      >
+        <div class="map-consent-wall">
+          <div class="map-consent-card">
+            <span aria-hidden="true">📍</span>
+            <h3>Google Maps aktivieren?</h3>
+            <p>
+              Um Ihnen die Karte zu zeigen, müssen Daten von Google-Servern geladen werden. Dabei kann Google Cookies speichern und Informationen zu Ihrer IP-Adresse verarbeiten.
+            </p>
+            <small>
+              Подробнее читайте в нашей
+              <a href="/privacy.html">Datenschutzerklärung</a>.
+            </small>
+            <button class="button map-consent-button" type="button" data-google-map-consent>
+              Karte laden & akzeptieren
+            </button>
+          </div>
+        </div>
       </div>
       <div class="footer-content">
         <div>
@@ -498,7 +508,7 @@
     <nav class="bottom-nav" aria-label="Быстрые действия">
       <a href="https://booksly.pl/schatzi" target="_blank" rel="noreferrer" aria-label="Online-Termin bei SCHATZI buchen">Booksly</a>
       <a href="https://wa.me/491703636129" target="_blank" rel="noreferrer" aria-label="SCHATZI in WhatsApp öffnen">WhatsApp</a>
-      <a href="https://www.google.com/maps?q=Grooming+Salon/Katze-+und+Hundesalon+%E2%80%9CSCHATZI%E2%80%9D,+Halmerweg+31a,+28237+Bremen&amp;ftid=0x47b1290051dfa5f5:0xd15544ab7d876a" target="_blank" rel="noreferrer" aria-label="Route zu SCHATZI in Google Maps öffnen">Karte</a>
+      <a href="tel:+491703636129" aria-label="SCHATZI telefonisch anrufen">Call</a>
     </nav>
 
     <section class="cookie-notice" data-cookie-notice aria-label="Cookie-Einstellungen">

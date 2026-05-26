@@ -13,9 +13,15 @@ const cookieEssential = document.querySelector("[data-cookie-essential]");
 const cookieAll = document.querySelector("[data-cookie-all]");
 const revealTargets = [...document.querySelectorAll(".section, .footer, .contact-section")];
 const languageButtons = [...document.querySelectorAll("[data-lang]")];
+const googleMap = document.querySelector("[data-google-map]");
+const googleMapConsentButton = document.querySelector("[data-google-map-consent]");
 
 let activeSlide = 0;
 let currentLanguage = "de";
+let heroSliderTimer;
+
+const desktopMotionQuery = window.matchMedia?.("(min-width: 768px)");
+const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
 const translations = {
   de: {
@@ -81,7 +87,7 @@ const translations = {
       ["Standort", "Halmerweg 31a, 28237 Bremen", "Premium Hundesalon und Katzensalon in Bremen. Öffnen Sie die Route direkt in Google Maps.", "Google Maps"],
       ["Online-Buchung", "Booksly CRM", "Buchen Sie Ihren Termin online ohne Anruf über Booksly.", "Termin über Booksly buchen"],
     ],
-    bottom: ["Booksly", "WhatsApp", "Karte"],
+    bottom: ["Booksly", "WhatsApp", "Anruf"],
     cookie: "Wir verwenden standardmäßig nur notwendige Cookies. Analyse-Cookies werden erst nach Ihrer ausdrücklichen Zustimmung aktiviert.",
     cookieEssential: "Nur notwendige akzeptieren",
     cookieAll: "Alle akzeptieren",
@@ -149,7 +155,7 @@ const translations = {
       ["Location", "Halmerweg 31a, 28237 Bremen", "Premium dog and cat salon in Bremen. Open the route directly in Google Maps.", "Google Maps"],
       ["Online Booking", "Booksly CRM", "Book your appointment online without calling through Booksly.", "Book via Booksly"],
     ],
-    bottom: ["Booksly", "WhatsApp", "Map"],
+    bottom: ["Booksly", "WhatsApp", "Call"],
     cookie: "We use only necessary cookies by default. Analytics cookies are enabled only after your explicit consent.",
     cookieEssential: "Accept necessary only",
     cookieAll: "Accept all",
@@ -217,7 +223,7 @@ const translations = {
       ["Локація", "Halmerweg 31a, 28237 Bremen", "Преміальний салон для собак і котів у Бремені. Відкрийте маршрут у Google Maps.", "Google Maps"],
       ["Онлайн-запис", "Booksly CRM", "Запишіться онлайн через Booksly без дзвінка.", "Запис через Booksly"],
     ],
-    bottom: ["Booksly", "WhatsApp", "Карта"],
+    bottom: ["Booksly", "WhatsApp", "Дзвінок"],
     cookie: "За замовчуванням ми використовуємо лише необхідні cookie. Аналітика вмикається тільки після вашої явної згоди.",
     cookieEssential: "Лише необхідні",
     cookieAll: "Прийняти всі",
@@ -285,7 +291,7 @@ const translations = {
       ["Локация", "Halmerweg 31a, 28237 Bremen", "Премиальный салон для собак и кошек в Бремене. Откройте маршрут в Google Maps.", "Google Maps"],
       ["Онлайн-запись", "Booksly CRM", "Запишитесь онлайн через Booksly без звонка.", "Запись через Booksly"],
     ],
-    bottom: ["Booksly", "WhatsApp", "Карта"],
+    bottom: ["Booksly", "WhatsApp", "Звонок"],
     cookie: "По умолчанию мы используем только необходимые cookie. Аналитика включается только после вашего явного согласия.",
     cookieEssential: "Только необходимые",
     cookieAll: "Принять все",
@@ -353,7 +359,7 @@ const translations = {
       ["Lokalizacja", "Halmerweg 31a, 28237 Bremen", "Premium salon dla psów i kotów w Bremie. Otwórz trasę w Google Maps.", "Google Maps"],
       ["Rezerwacja online", "Booksly CRM", "Zarezerwuj wizytę online przez Booksly bez telefonu.", "Rezerwuj przez Booksly"],
     ],
-    bottom: ["Booksly", "WhatsApp", "Mapa"],
+    bottom: ["Booksly", "WhatsApp", "Telefon"],
     cookie: "Domyślnie używamy tylko niezbędnych cookies. Analityka zostanie włączona dopiero po Twojej wyraźnej zgodzie.",
     cookieEssential: "Tylko niezbędne",
     cookieAll: "Akceptuj wszystkie",
@@ -388,6 +394,18 @@ function cycleHero() {
   if (slides.length < 2) return;
   activeSlide = (activeSlide + 1) % slides.length;
   showSlide(activeSlide);
+}
+
+function manageHeroSlider() {
+  clearInterval(heroSliderTimer);
+
+  if (slides.length < 2 || reducedMotionQuery?.matches || desktopMotionQuery?.matches === false) {
+    activeSlide = 0;
+    showSlide(activeSlide);
+    return;
+  }
+
+  heroSliderTimer = setInterval(cycleHero, 5200);
 }
 
 function activateTab(tabName) {
@@ -631,6 +649,21 @@ function setupRevealAnimations() {
   revealTargets.forEach((target) => observer.observe(target));
 }
 
+function activateGoogleMap() {
+  if (!googleMap?.dataset.mapSrc) return;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = googleMap.dataset.mapSrc;
+  iframe.title = "Schatzi Grooming Salon Google Maps";
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.loading = "lazy";
+  iframe.referrerPolicy = "no-referrer-when-downgrade";
+  iframe.allowFullscreen = true;
+
+  googleMap.replaceChildren(iframe);
+}
+
 window.addEventListener("scroll", elevateHeader, { passive: true });
 window.addEventListener("pointermove", moveCursorGlow, { passive: true });
 
@@ -652,6 +685,7 @@ if (comparison) {
 careQuiz?.addEventListener("input", updateQuizRecommendation, { passive: true });
 cookieEssential?.addEventListener("click", () => setCookieChoice("essential"));
 cookieAll?.addEventListener("click", () => setCookieChoice("all"));
+googleMapConsentButton?.addEventListener("click", activateGoogleMap);
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
 });
@@ -667,4 +701,6 @@ setupCookieNotice();
 setupRevealAnimations();
 elevateHeader();
 showSlide(activeSlide);
-setInterval(cycleHero, 5200);
+manageHeroSlider();
+desktopMotionQuery?.addEventListener?.("change", manageHeroSlider);
+reducedMotionQuery?.addEventListener?.("change", manageHeroSlider);
