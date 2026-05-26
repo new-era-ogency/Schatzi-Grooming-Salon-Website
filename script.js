@@ -5,15 +5,8 @@ const tabPanels = [...document.querySelectorAll("[data-panel]")];
 const accordions = [...document.querySelectorAll(".accordion")];
 const comparison = document.querySelector("[data-comparison]");
 const cursorGlow = document.querySelector(".cursor-glow");
-const bookingModal = document.querySelector("[data-booking-modal]");
-const bookingOpeners = [...document.querySelectorAll("[data-booking-open]")];
-const bookingClosers = [...document.querySelectorAll("[data-booking-close]")];
-const bookingForm = document.querySelector("[data-booking-form]");
-const serviceSelect = document.querySelector("[data-service-select]");
-const bookingNote = document.querySelector("[data-booking-note]");
 
 let activeSlide = 0;
-let lastFocusedElement = null;
 
 function elevateHeader() {
   header?.classList.toggle("is-elevated", window.scrollY > 24);
@@ -69,38 +62,8 @@ function moveCursorGlow(event) {
   cursorGlow.style.transform = `translate3d(${event.clientX - 176}px, ${event.clientY - 176}px, 0)`;
 }
 
-function openBookingModal(service) {
-  if (!bookingModal) return;
-
-  lastFocusedElement = document.activeElement;
-  bookingModal.hidden = false;
-  document.body.classList.add("modal-open");
-
-  if (service && serviceSelect) {
-    serviceSelect.value = service;
-  }
-
-  if (bookingNote) {
-    bookingNote.textContent = "";
-  }
-  bookingModal.querySelector(".modal-close")?.focus();
-}
-
-function closeBookingModal() {
-  if (!bookingModal) return;
-
-  bookingModal.hidden = true;
-  document.body.classList.remove("modal-open");
-  lastFocusedElement?.focus?.();
-}
-
 window.addEventListener("scroll", elevateHeader, { passive: true });
 window.addEventListener("pointermove", moveCursorGlow, { passive: true });
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && bookingModal && !bookingModal.hidden) {
-    closeBookingModal();
-  }
-});
 
 tabButtons.forEach((button) => {
   button.addEventListener("click", () => activateTab(button.dataset.tab));
@@ -109,21 +72,6 @@ tabButtons.forEach((button) => {
 accordions.forEach((accordion) => {
   const trigger = accordion.querySelector(".accordion-trigger");
   trigger?.addEventListener("click", () => toggleAccordion(accordion));
-});
-
-bookingOpeners.forEach((opener) => {
-  opener.addEventListener("click", () => openBookingModal(opener.dataset.service));
-});
-
-bookingClosers.forEach((closer) => {
-  closer.addEventListener("click", closeBookingModal);
-});
-
-bookingForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (bookingNote) {
-    bookingNote.textContent = "Request saved locally. Connect the CRM widget to complete real-time booking.";
-  }
 });
 
 if (comparison) {
